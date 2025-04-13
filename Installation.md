@@ -1,33 +1,49 @@
 # Step 1: Checking Dependency
 * Python 3.8 or 3.10
+
 `python--version`
 * Operating systems: Linux: Ubuntu 18.04+, Centos 7+
+
 `cat /etc/os-release`
 * Hardware： NVIDIA GPU with recommended CUDA version 12.1
+
 `nvcc --version`
 
 # Step 2: Install Vulkan
+
 `apt install libvulkan1 mesa-vulkan-drivers vulkan-tools`
 
 # Step 3: Build Basic Environment
 * Prepare a conda environment
-`conda create -n RoboTwin python=3.10
-conda activate RoboTwin`
+
+```
+conda create -n RoboTwin python=3.10
+conda activate RoboTwin
+```
+
 * Install packages
+
 `pip install torch==2.4.1 torchvision sapien==3.0.0b1 scipy==1.10.1 mplib==0.1.1 gymnasium==0.29.1 trimesh==4.4.3 open3d==0.18.0 imageio==2.34.2 pydantic zarr openai huggingface_hub==0.25.0`
 * Clone RoboTwin GitHub
+
 `git clone https://github.com/TianxingChen/RoboTwin`
 * Install pytorch3d
-`cd ../..
+
+```
+cd ../..
 cd RoboTwin/third_party/pytorch3d_simplified
-pip install -e .`
+pip install -e .
+```
 
 # Step 4: Download Assert
-`cd ../..
+
+```
+cd ../..
 cd RoboTwin/script
 python download_asset.py
 unzip aloha_urdf.zip
-unzip main_models.zip`
+unzip main_models.zip
+```
 
 # Step 5: Modify `mplib` Library Code
 Use `pip show mplib` to find where `mplib` installed, then use `vim <path>` to modify. Press `i` to insert. Finally, press `Esc` and type `:wq` to finish modification.
