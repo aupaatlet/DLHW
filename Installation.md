@@ -1,9 +1,9 @@
 # Installation Instruction
-* [Run on docker]{#1}
-* [Run locally]{#2}
+* [Run on docker](#b)
+* [Run locally](#c)
 
 
-## Run on Docker {#1}
+## Run on Docker <a id="b"></a>
 ### Step 1: Checking Dependency
 * Python 3.8 or 3.10
 ```
@@ -104,7 +104,7 @@ if np.linalg.norm(delta_twist) < 1e-4 or not within_joint_limit:
 apt install -y libx11-6 libgl1 libglx0 libegl1 libxext6 libxi6
 ```
 
-## Run Locally {#2}
+## Run Locally <a id="c"></a>
 ### Step 1: Checking Dependency
 * Python 3.8 or 3.10
 ```
