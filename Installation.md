@@ -21,6 +21,7 @@ nvcc --version
 ### Step 2: Install Vulkan
 ```
 apt install libvulkan1 mesa-vulkan-drivers vulkan-tools
+apt install -y libx11-6 libgl1 libglx0 libegl1 libxext6 libxi6
 ```
 
 ### Step 3: Build Basic Environment
@@ -97,11 +98,6 @@ if np.linalg.norm(delta_twist) < 1e-4 or collide or not within_joint_limit:
 =>
 if np.linalg.norm(delta_twist) < 1e-4 or not within_joint_limit:
                 return {"status": "screw plan failed"}
-```
-   
-### Step 6: Analog Graphics Environment (If run on docker)
-```
-apt install -y libx11-6 libgl1 libglx0 libegl1 libxext6 libxi6
 ```
 
 ## Run Locally <a id="c"></a>
