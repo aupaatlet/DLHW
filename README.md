@@ -52,8 +52,7 @@ unzip main_models.zip
 ```
 
 ### Step 5: Modify `mplib` Library Code
-Use `pip show mplib` to find where `mplib` installed, then use `vim <path>` to modify. Press `i` to insert. Finally, press `Esc` and type `:wq` to finish modification.
-用命令`pip show mplib`找`mplib`的安装路径（假设是`<path>`，应该为`.../mplib/planner.py`）并复制，然后用命令`vim <path>`查看该文件。按`i`进入编辑模式，找到71行并把`convex=True`注释掉，找到848行并删除`or collide`。最后，点击`Esc`并输入`:wq`。
+Use command `pip show mplib` to find the installed path of `mplib` (Assume `<path>`, it should be `.../mplib/planner.py`) then copy, use command `vim <path>` and press `i` to edit afterward. Finally, make changes for the line 71 (`convex=True` to `# convex=True` and line 848 remove `or collide`. Finish the changes by pressing `Esc` then type `:wq`.
 
 * Remove `convex=True`
 
