@@ -115,3 +115,35 @@ bash run_task.sh <task_name> <gpu_id>
 * The `.pkl` files are very large, we will convert them into `.png` files
 * Open `pkl_to_png.ipynb`, modify your `.pkl` path and saving path, then run
 * For each task, 100 observations (episodes) will be generated
+
+## Finetune ip2p with our own dataset
+### Step 1: Checking Dependency
+*CUDA 12.1 and python 3.9(our code is based on GRMG)
+
+### Step 2: Preparation
+```bash
+# clone this repository
+git clone https://github.com/bytedance/GR-MG.git
+cd GR_MG
+# install dependencies for goal image generation model
+bash ./goal_gen/install.sh
+# install dependencies for multi-modal goal conditioned policy
+bash ./policy/install.sh
+```
+Download the pretrained [InstructPix2Pix](https://huggingface.co/timbrooks/instruct-pix2pix) weights from Huggingface and save them in `resources/IP2P/`. 
+Download the pretrained MAE encoder [mae_pretrain_vit_base.pth ](https://dl.fbaipublicfiles.com/mae/pretrain/mae_pretrain_vit_base.pth) and save it in `resources/MAE/`.
+Organize the dataset and save them in `resources/data`.
+
+### Step 3: Training
+
+```bash
+# modify the variables in the script before you execute the following instruction
+bash ./goal_gen/newtrain.sh  ./goal_gen/config/newtrain.json
+```
+
+### Step 4: Evaluate
+
+```bash
+# load the checpoint and get the predicted pics
+python ceshi2.py
+```
